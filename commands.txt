@@ -1,0 +1,14 @@
+run server
+composer run dev
+make model
+php artisan make:model -ms Book
+migrate
+php artisan migrate
+run book seeder:
+php artisan db:seed --class=BookSeeder
+controller
+php artisan make:controller BookController
+view
+php artisan make:view booklist 
+view
+php artisan make:view partials.search 
