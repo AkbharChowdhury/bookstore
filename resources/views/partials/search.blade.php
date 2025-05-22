@@ -5,7 +5,9 @@
     @else
         <ul>
             @foreach ($books as $book)
-                <li><strong>{{ $book->title }}</strong> by {{ $book->author }}</li>
+                <li>
+                    <strong>{{ $book->title }}</strong> by {{ $book->author }}
+                </li>
             @endforeach
         </ul>
     @endif
