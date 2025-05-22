@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/books', [BookController::class, 'index'])->name('b');;
-Route::get('/search', [BookController::class, 'search'])->name('s');;
+Route::get('/search', [BookController::class, 'search'])->name('search');;
 
 
 

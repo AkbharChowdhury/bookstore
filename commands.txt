@@ -12,3 +12,8 @@ view
 php artisan make:view booklist 
 view
 php artisan make:view partials.search 
+
+add image 
+php artisan make:migration add_paid_to_users_table --table=users
+php artisan make:migration add_image_to_books_table
+
