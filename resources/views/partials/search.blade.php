@@ -1,4 +1,4 @@
-<div id="results">
+<div id="results" class="pt-2">
 
     @if ($books->isEmpty())
         <p>No results found</p>
