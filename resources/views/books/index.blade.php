@@ -7,12 +7,8 @@
         <div class="container-fluid">
             <div class="col-sm-2">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" focus
-                     type="search" placeholder="Search" aria-label="Search" 
-                     name="query",
-                        hx-get="{{ route('search') }}"
-                         hx-trigger="keyup delay:300ms"
-                          hx-target="#results" />
+                    <input class="form-control me-2" focus type="search" placeholder="Search" aria-label="Search"
+                        name="query", hx-get="{{ route('search') }}" hx-trigger="keyup delay:300ms" hx-target="#results" />
                 </form>
             </div>
         </div>
