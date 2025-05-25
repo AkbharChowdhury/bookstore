@@ -3,3 +3,4 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div> --}}
+<span id="spinner" class="loading loading-spinner loading-xl htmx-indicator"></span>

@@ -3,6 +3,7 @@
 
         @include('partials.loading')
 
+
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             @forelse ($books as $book)
                 <div class="col">
@@ -22,7 +23,6 @@
                                     </h5>
                                     <p class="card-text">
                                         {{ $book->author }}
-
                                     </p>
 
                                 </div>

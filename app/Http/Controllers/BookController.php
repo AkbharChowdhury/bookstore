@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Illuminate\View\View;
+use Illuminate\Support\Sleep;
+
 
 class BookController extends Controller
 {
@@ -20,6 +22,7 @@ class BookController extends Controller
     {
         $query = $request->input('query');
         $books = Book::where('title', 'LIKE', "%$query%")->get();
+        Sleep::for(3)->seconds();
         return view('partials.search', compact('books'));
     }
     
