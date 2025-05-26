@@ -6,4 +6,7 @@
         </div>
     </div>
 </div>
- {{ $books->links() }}
+
+
+ {{-- {{ $books->links() }} --}}
+ {{ $links }}

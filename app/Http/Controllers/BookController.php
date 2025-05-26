@@ -10,37 +10,43 @@ use Illuminate\Support\Sleep;
 
 class BookController extends Controller
 {
-    private function pagination_num()
+    private const RECORDS_PER_PAGE = 6;
+
+    private function filterBooks(string $title)
     {
-        return 6;
+        return Book::where('title', 'LIKE', "%$title%");
     }
+
     public function index(): View
     {
-        $books = Book::paginate($this->getPageLimit());
-        return view('books.index', compact('books'));
+        
+        $books = Book::orderBy('title')->paginate(self::RECORDS_PER_PAGE);
+        $links = $books;
+        return view('books.index', compact('books', 'links'));
     }
 
 
     public function search(Request $request)
     {
-        if ($request->input('query') == null) {
-
-            $books = Book::where('title', 'LIKE', "%%");
-            return view('partials.search', compact('books'));
-
-        }
         $query = $request->input('query');
-        $books = Book::where('title', 'LIKE', "%$query%")->paginate($this->getPageLimit());
+
+        if ($query == null) {
+
+            $books = $this->filterBooks(title: '')->orderBy('title');
+                    $links = $books;
+
+            return view('partials.search', compact('books', 'links'));
+        }
+
+        $books = $this->filterBooks(title: $query)->orderBy('title')->paginate(self::RECORDS_PER_PAGE);
+        $links = $books;
 
         
         Sleep::for(3)->seconds();
-        return view('partials.search', compact('books'));
+        return view('partials.search', compact('books', 'links'));
     }
 
-    private function getPageLimit(): int
-    {
-        return 6;
-    }
+
     
     
 }
