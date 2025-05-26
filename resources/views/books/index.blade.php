@@ -14,7 +14,7 @@
                       placeholder="Begin Typing To Search books..."
                         aria-label="Search" 
                         name="query", 
-                        hx-get="{{ route('search') }}"
+                        hx-get="{{ route('books.search') }}"
                         hx-trigger="input changed delay:500ms, keyup[key=='Enter'], load" 
                         hx-target="#search-results"
                         hx-indicator=".htmx-indicator"

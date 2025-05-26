@@ -3,12 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::view('/', 'welcome');
+Route::controller(BookController::class)->group(function(){
+    Route::get('/books','index')->name('books.index');
+    Route::get('/search','search')->name('books.search');
 });
-
-Route::get('/books', [BookController::class, 'index'])->name('b');;
-Route::get('/search', [BookController::class, 'search'])->name('search');;
-
-
-
