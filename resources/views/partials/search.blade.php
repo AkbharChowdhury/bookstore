@@ -7,4 +7,10 @@
     </div>
 
 </div>
-{{-- {{ $books->links() }} --}}
+
+
+<div id="pagination-links" class="p-3" 
+    hx-boost="true" 
+    hx-target="#search-results">
+    {{ $books->links() }}
+</div>
