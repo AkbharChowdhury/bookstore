@@ -8,23 +8,11 @@
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" focus type="search" placeholder="Begin Typing To Search books..."
                         aria-label="Search" name="q", hx-get="{{ route('books.index') }}"
-                        hx-trigger="input changed delay:300ms, keyup[key=='Enter'], load" hx-target="#search-results"
+                        hx-trigger="input changed delay:3s, keyup[key=='Enter'], load" hx-target="#search-results"
                         hx-swap="outerHTML" hx-indicator=".htmx-indicator" />
                 </form>
             </div>
         </div>
         @include('partials.search')
-
-
-
-{{-- <div id="pagination-links" class="p-3" 
-    hx-boost="true" 
-    hx-target="#search-results"
-    >
-    {{-- {{ $books->links() }} --}}
-                {{-- {{ $books->withQueryString()->links('pagination::bootstrap-5') }} --}}
-
-{{-- </div> --}} 
     </div>
 @endsection
-

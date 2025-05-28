@@ -16,7 +16,6 @@ class BookController extends Controller
     {  
         Sleep::for(3)->seconds(); 
         $searchTerm = $request->input('q') ?? '';  
-  
         $books = Book::where('title', 'LIKE', "%$searchTerm%")->paginate(self::RECORDS_PER_PAGE);  
         
         if ($request->header('hx-request') && $request->header('hx-target') === 'search-results') {  
@@ -25,9 +24,6 @@ class BookController extends Controller
   
         return view('books.index', compact('books'));  
     }
-    
-
-
     
     
 }
