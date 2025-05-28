@@ -12,39 +12,20 @@ class BookController extends Controller
 {
     private const RECORDS_PER_PAGE = 6;
 
-    private function filterBooks(string $title)
-    {
-        return Book::where('title', 'LIKE', "%$title%");
-    }
-
-    public function index(): View
-    {
+    public function index(Request $request)  
+    {  
+        Sleep::for(3)->seconds(); 
+        $searchTerm = $request->input('query') ?? '';  
+  
+        $books = Book::where('title', 'LIKE', "%$searchTerm%")->get();  
         
-        $books = Book::orderBy('title')->paginate(self::RECORDS_PER_PAGE);
-        $links = $books;
-        return view('books.index', compact('books', 'links'));
+        if ($request->header('hx-request')) {  
+            return view('partials.search', compact('books'));
+        } 
+  
+        return view('books.index', compact('books'));  
     }
-
-
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-
-        if ($query == null) {
-
-            $books = $this->filterBooks(title: '')->orderBy('title');
-                    $links = $books;
-
-            return view('partials.search', compact('books', 'links'));
-        }
-
-        $books = $this->filterBooks(title: $query)->orderBy('title')->paginate(self::RECORDS_PER_PAGE);
-        $links = $books;
-
-        
-        Sleep::for(3)->seconds();
-        return view('partials.search', compact('books', 'links'));
-    }
+    
 
 
     

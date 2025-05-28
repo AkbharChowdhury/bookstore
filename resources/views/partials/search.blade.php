@@ -5,8 +5,6 @@
             @include('partials.book_row', ['books' => $books])
         </div>
     </div>
+
 </div>
-
-
- {{-- {{ $books->links() }} --}}
- {{ $links }}
+{{-- {{ $books->links() }} --}}
