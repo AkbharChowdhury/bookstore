@@ -5,12 +5,5 @@
             @include('partials.book_row', ['books' => $books])
         </div>
     </div>
-
-</div>
-
-
-<div id="pagination-links" class="p-3" 
-    hx-boost="true" 
-    hx-target="#search-results">
-    {{ $books->links() }}
+        @include('partials.pagination')
 </div>
