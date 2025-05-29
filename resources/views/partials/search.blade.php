@@ -2,7 +2,7 @@
     <div class="container m-4">
         @include('partials.loading')
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            @include('partials.book_row', ['books' => $books])
+            @include('partials.book')
         </div>
     </div>
         @include('partials.pagination')

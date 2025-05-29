@@ -15,8 +15,8 @@ class BookController extends Controller
     public function index(Request $request)  
     {  
         Sleep::for(3)->seconds(); 
-        $searchTerm = $request->input('q') ?? '';  
-        $books = Book::where('title', 'LIKE', "%$searchTerm%")->paginate(self::RECORDS_PER_PAGE);  
+        $title = $request->input('q') ?? '';  
+        $books = Book::where('title', 'LIKE', '%'. $title .'%')->paginate(self::RECORDS_PER_PAGE);  
         
         if ($request->header('hx-request') && $request->header('hx-target') === 'search-results') {  
             return view('partials.search', compact('books'));

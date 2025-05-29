@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('template.layout')
 @section('content')
     <div class="container-fluid py-5" id="book_container">
         <h1>Search books</h1>
